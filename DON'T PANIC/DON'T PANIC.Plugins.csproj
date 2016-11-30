@@ -180,6 +180,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Dynamic Flickering Light\readme.txt" />
+    <None Include="Assets\Measure It\readme.txt" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />

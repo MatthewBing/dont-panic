@@ -88,6 +88,9 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="SevenSegmentDisplayDriver">
+      <HintPath>Assets\SevenSegmentDisplay\Drivers\SevenSegmentDisplayDriver.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="DON&apos;T PANIC.Plugins.csproj">
@@ -100,14 +103,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\VolumetricLines\Scripts\Editor\ExposeProperties.cs" />
-    <Compile Include="Assets\VolumetricLines\Scripts\Editor\VolumetricLineBehaviorEditor.cs" />
-    <Compile Include="Assets\VolumetricLines\Scripts\Editor\VolumetricLineStripBehaviorEditor.cs" />
+    <Compile Include="Assets\Sci-Fi_Modular_Pack_v1\Kino\Fringe\Editor\FringeEditor.cs" />
+    <Compile Include="Assets\Sci-Fi_Modular_Pack_v1\Kvant\Stream\Editor\StreamEditor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\LICENSE 1.txt" />
-    <None Include="Assets\LICENSE.txt" />
-    <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
+    <None Include="Assets\Dynamic Flickering Light\readme.txt" />
+    <None Include="Assets\Measure It\readme.txt" />
+    <None Include="Assets\Sci-Fi_Modular_Pack_v1\Kino\Fringe\Shader\Fringe.shader" />
+    <None Include="Assets\Sci-Fi_Modular_Pack_v1\Kino\License.txt" />
+    <None Include="Assets\Sci-Fi_Modular_Pack_v1\Kvant\Stream\License.txt" />
+    <None Include="Assets\Sci-Fi_Modular_Pack_v1\Kvant\Stream\Shaders\ClassicNoise3D.cginc" />
+    <None Include="Assets\Sci-Fi_Modular_Pack_v1\Kvant\Stream\Shaders\Debug.shader" />
+    <None Include="Assets\Sci-Fi_Modular_Pack_v1\Kvant\Stream\Shaders\Kernel.shader" />
+    <None Include="Assets\Sci-Fi_Modular_Pack_v1\Kvant\Stream\Shaders\Line.shader" />
+    <None Include="Assets\SevenSegmentDisplay\Shaders\AlphaSelfIllum.shader" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
@@ -201,12 +210,6 @@
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
     <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
-    <None Include="Assets\VolumetricLines\Shaders\VolumetricLineShaderAdditive.shader" />
-    <None Include="Assets\VolumetricLines\Shaders\VolumetricLineShaderAdditiveFast.shader" />
-    <None Include="Assets\VolumetricLines\Shaders\VolumetricLineShaderAlphaBlended.shader" />
-    <None Include="Assets\VolumetricLines\Shaders\VolumetricLineShaderAlphaBlendedFast.shader" />
-    <None Include="Assets\VolumetricLines\Shaders\VolumetricLineStripShaderAdditive.shader" />
-    <None Include="Assets\VolumetricLines\Shaders\VolumetricLineStripShaderAlphaBlended.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

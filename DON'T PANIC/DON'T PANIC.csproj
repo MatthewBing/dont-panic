@@ -72,10 +72,14 @@
     <Compile Include="Assets\Dynamic Flickering Light\FlickeringLight.cs" />
     <Compile Include="Assets\Dynamic Flickering Light\FlickeringLight2.cs" />
     <Compile Include="Assets\Dynamic Flickering Light\slowIntensityIncrease.cs" />
+    <Compile Include="Assets\Measure It\MeasureIt.cs" />
+    <Compile Include="Assets\Measure It\MeasureItDemo.cs" />
     <Compile Include="Assets\Models\Speaker\TriggeredAudio.cs" />
+    <Compile Include="Assets\TV\MyClock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Dynamic Flickering Light\readme.txt" />
+    <None Include="Assets\Measure It\readme.txt" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />

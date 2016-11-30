@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Game.unity
+- path: Assets/SevenSegmentDisplay/Scenes/4x 7SD Demo.unity
   isLoaded: 1
   isActive: 1
