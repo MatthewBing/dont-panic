@@ -70,6 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Dynamic Flickering Light\FlickeringLight.cs" />
+    <Compile Include="Assets\Dynamic Flickering Light\FlickeringLight2.cs" />
+    <Compile Include="Assets\Dynamic Flickering Light\slowIntensityIncrease.cs" />
+    <Compile Include="Assets\Models\Speaker\TriggeredAudio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Dynamic Flickering Light\readme.txt" />
