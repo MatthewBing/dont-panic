@@ -5,6 +5,7 @@
 [Oo]bj/
 [Bb]uild
 [Ll]ibrary/
+[Ll]ibrary/metadata
 sysinfo.txt
 *.stackdump
  
@@ -33,9 +34,3 @@ sysinfo.txt
 ehthumbs.db
 [Tt]humbs.db
 [Dd]esktop.ini
-
-DON'T PANIC/Library/*
-DON'T PANIC/ProjectSettings/ProjectSettings.asset
-DON'T PANIC/Library/InspectorExpandedItems.asset
-DON'T PANIC/Library/ProjectSettings
-DON'T PANIC/Library/assetDatabase3
