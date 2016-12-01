@@ -61,6 +61,9 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="SevenSegmentDisplayDriver">
+      <HintPath>Assets\SevenSegmentDisplay\Drivers\SevenSegmentDisplayDriver.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="DON&apos;T PANIC.Plugins.csproj">
@@ -75,11 +78,13 @@
     <Compile Include="Assets\Measure It\MeasureIt.cs" />
     <Compile Include="Assets\Measure It\MeasureItDemo.cs" />
     <Compile Include="Assets\Models\Speaker\TriggeredAudio.cs" />
+    <Compile Include="Assets\SevenSegmentDisplay\Drivers\NewBehaviourScript.cs" />
     <Compile Include="Assets\TV\MyClock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Dynamic Flickering Light\readme.txt" />
     <None Include="Assets\Measure It\readme.txt" />
+    <None Include="Assets\SevenSegmentDisplay\Shaders\AlphaSelfIllum.shader" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
