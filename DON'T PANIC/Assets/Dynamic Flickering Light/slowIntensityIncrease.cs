@@ -5,7 +5,6 @@ public class slowIntensityIncrease : MonoBehaviour {
 
     new public Light light = null;
     private float EndTime = 5;
-    private float StartTime = 0;
 
     IEnumerator slowLightTurnon(float time)
     {
