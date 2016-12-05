@@ -9,7 +9,8 @@ public class LaserTip_LaserScript : MonoBehaviour
 	public float 	updateFrequency;	
 	public float 	LaserWidth;
 	public int 		LaserLength;		
-	public int 		MaxReflections;			
+	public int 		MaxReflections;
+    public bool     isOn;		
 
 	private 		LineRenderer 	LaserLR;		//Laser Line Renderer
 	private 		Light			FlareLight;		//Flare Light
@@ -33,12 +34,11 @@ public class LaserTip_LaserScript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if( Input.GetButtonDown("Fire1") )//fix- Replace the controller button name
-		{
-			StopCoroutine ( FireLaser() );
-			StartCoroutine( FireLaser() );
-		}
-	}
+		if( isOn )
+            StartCoroutine(FireLaser());
+        else
+            StopCoroutine(FireLaser());
+    }
 
 	IEnumerator FireLaser()
 	{
@@ -56,7 +56,7 @@ public class LaserTip_LaserScript : MonoBehaviour
 		LaserLR.SetPosition(0, transform.position);
 
 		RaycastHit LaserRayHit;
-		while(Input.GetButton("Fire1"))//fix- Replace the controller button name
+		while(isOn)//fix- Replace the controller button name
 		{	
 			while (LoopBool)
 			{

@@ -64,6 +64,9 @@
     <Reference Include="SevenSegmentDisplayDriver">
       <HintPath>Assets\SevenSegmentDisplay\Drivers\SevenSegmentDisplayDriver.dll</HintPath>
     </Reference>
+    <Reference Include="Assembly-UnityScript-firstpass">
+      <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="DON&apos;T PANIC.Plugins.csproj">
@@ -75,11 +78,15 @@
     <Compile Include="Assets\Dynamic Flickering Light\FlickeringLight.cs" />
     <Compile Include="Assets\Dynamic Flickering Light\FlickeringLight2.cs" />
     <Compile Include="Assets\Dynamic Flickering Light\slowIntensityIncrease.cs" />
-    <Compile Include="Assets\LaserTip_LaserScript.cs" />
     <Compile Include="Assets\Measure It\MeasureIt.cs" />
     <Compile Include="Assets\Measure It\MeasureItDemo.cs" />
     <Compile Include="Assets\Models\Speaker\TriggeredAudio.cs" />
     <Compile Include="Assets\Oven\ovenFireMover.cs" />
+    <Compile Include="Assets\Rigidbody-PickUp\Scripts\Placeback.cs" />
+    <Compile Include="Assets\Rigidbody-PickUp\Scripts\RigidbodyPickUp.cs" />
+    <Compile Include="Assets\Scripts\LaserTip_LaserScript.cs" />
+    <Compile Include="Assets\Scripts\RayCaster.cs" />
+    <Compile Include="Assets\Scripts\buttonHandler.cs" />
     <Compile Include="Assets\SevenSegmentDisplay\Drivers\NewBehaviourScript.cs" />
     <Compile Include="Assets\TV\MyClock.cs" />
     <Compile Include="Assets\UltimateMenus\Scripts\ButtonController.cs" />
@@ -89,7 +96,6 @@
     <Compile Include="Assets\UltimateMenus\Scripts\MenuController.cs" />
     <Compile Include="Assets\UltimateMenus\Scripts\MenuController_Paused.cs" />
     <Compile Include="Assets\UltimateMenus\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\buttonHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Dynamic Flickering Light\readme.txt" />

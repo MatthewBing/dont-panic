@@ -28,10 +28,7 @@ public class ovenFireMover : MonoBehaviour
  }
     public void Start()
     {
-        
-    }
-    public void turnOn()
-    {
         StartCoroutine(MoveOverSeconds(gameObject, GameObject.Find("Attractor").transform.position, 1f));
     }
+
 }
