@@ -184,6 +184,10 @@
   <ItemGroup>
     <None Include="Assets\Dynamic Flickering Light\readme.txt" />
     <None Include="Assets\Measure It\readme.txt" />
+    <None Include="Assets\OVR\Editor\AndroidManifest.OVRSubmission.xml" />
+    <None Include="Assets\OVR\Resources\Unlit Transparent Color.shader" />
+    <None Include="Assets\OVR\Shaders\OVRColorRampAlpha.shader" />
+    <None Include="Assets\OVR\Shaders\Unlit Crosshair.shader" />
     <None Include="Assets\SevenSegmentDisplay\Shaders\AlphaSelfIllum.shader" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
