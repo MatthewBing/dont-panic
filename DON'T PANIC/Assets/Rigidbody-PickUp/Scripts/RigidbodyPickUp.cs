@@ -152,32 +152,52 @@ public class RigidbodyPickUp : MonoBehaviour
         }
     }
 
+
+
+
+
+
+
+	bool flipped= false;
+
+	IEnumerator Wait(float seconds)
+	{
+		flipped = true;
+		yield return new WaitForSeconds (seconds);
+		flipped = false;
+	}
+
+
     void Update()
     {
         if (rotationSystem.enabled)
         {
             if (Input.GetButton(rotationSystem.rotateButton) && isObjectHeld)
             {
-                physicsMenu.objectRotated = true;
-                objectHeld.GetComponent<Rigidbody>().freezeRotation = true;
-                objectHeld.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                for (int x = 0; x < rotationSystem.mouseScripts.Length; x++)
-                {
-                    rotationSystem.mouseScripts[x].enabled = !rotationSystem.mouseScripts[x].enabled;
-                }
-                switch (rotationSystem.lockRotationTo)
-                {
-                    case rotationSystemSub.lockingRotation.X:
-                        objectHeld.transform.RotateAroundLocal(playerCam.transform.up, -Mathf.Deg2Rad * (rotationSystem.xRotationSpeed * Input.GetAxis("Mouse X")));
-                        break;
-                    case rotationSystemSub.lockingRotation.Y:
-                        objectHeld.transform.RotateAroundLocal(playerCam.transform.right, Mathf.Deg2Rad * (rotationSystem.yRotationSpeed * Input.GetAxis("Mouse Y")));
-                        break;
-                    case rotationSystemSub.lockingRotation.None:
-                        objectHeld.transform.RotateAroundLocal(playerCam.transform.up, -Mathf.Deg2Rad * (rotationSystem.xRotationSpeed * Input.GetAxis("Mouse X")));
-                        objectHeld.transform.RotateAroundLocal(playerCam.transform.right, Mathf.Deg2Rad * (rotationSystem.yRotationSpeed * Input.GetAxis("Mouse Y")));
-                        break;
-                }
+				if (flipped == false) {
+					objectHeld.transform.RotateAround (objectHeld.transform.up, 90f);
+					StartCoroutine (Wait (1.0f));
+				} 
+                //physicsMenu.objectRotated = true;
+                //objectHeld.GetComponent<Rigidbody>().freezeRotation = true;
+                //objectHeld.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                //for (int x = 0; x < rotationSystem.mouseScripts.Length; x++)
+                //{
+                 //   rotationSystem.mouseScripts[x].enabled = !rotationSystem.mouseScripts[x].enabled;
+                //}
+                //switch (rotationSystem.lockRotationTo)
+                //{
+                  //  case rotationSystemSub.lockingRotation.X:
+                    //    objectHeld.transform.Rotate(playerCam.transform.up, -Mathf.Deg2Rad * (rotationSystem.xRotationSpeed * Input.GetAxis("Mouse X")));
+                      //  break;
+                    //case rotationSystemSub.lockingRotation.Y:
+                     //   objectHeld.transform.Rotate(playerCam.transform.right, Mathf.Deg2Rad * (rotationSystem.yRotationSpeed * Input.GetAxis("Mouse Y")));
+                      //  break;
+                    //case rotationSystemSub.lockingRotation.None:
+                     //   objectHeld.transform.Rotate(playerCam.transform.up, -Mathf.Deg2Rad * (rotationSystem.xRotationSpeed * Input.GetAxis("Mouse X")));
+                      //  objectHeld.transform.Rotate(playerCam.transform.right, Mathf.Deg2Rad * (rotationSystem.yRotationSpeed * Input.GetAxis("Mouse Y")));
+                       // break;
+                
             }
             else if (!Input.GetButton(rotationSystem.rotateButton) && isObjectHeld)
             {
@@ -194,7 +214,7 @@ public class RigidbodyPickUp : MonoBehaviour
         //Crosshair Raycasting
         Ray playerAim = playerCam.GetComponent<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.5f));
         RaycastHit hit;
-        //Debug.DrawRay(playerAim.origin, playerAim.direction, Color.red);
+        Debug.DrawRay(playerAim.origin, playerAim.direction, Color.red);
 
         if (Physics.Raycast(playerAim, out hit, maxDistanceGrab - 1.5f))
         {
@@ -326,6 +346,7 @@ public class RigidbodyPickUp : MonoBehaviour
         if (hit.collider.tag != "Pickable") return;
         for (int i = 0; i < pickableObjs.Length; i++)
         {
+
             if (pickableObjs[i] == hit.collider.gameObject)
             {
                 if (Vector3.Distance(hit.collider.gameObject.transform.position, playerCam.transform.position) <= maxDistanceGrab)

@@ -4,7 +4,6 @@ using System.Collections;
 public class slowIntensityIncrease : MonoBehaviour {
 
     new public Light light = null;
-    private float EndTime = 5;
 
     IEnumerator slowLightTurnon(float time)
     {
@@ -21,6 +20,6 @@ public class slowIntensityIncrease : MonoBehaviour {
 	
 	void Update () {
         if (light && Time.time < 10)
-            light.intensity = Time.time/5;
+            light.intensity = Time.time/10;
     }
 }
