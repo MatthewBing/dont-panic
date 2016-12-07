@@ -1,0 +1,220 @@
+fileFormatVersion: 2
+guid: 19561ee51aea6e64a98d5b9c589c8394
+timeCreated: 1481122809
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: GeodesicSphere02
+    100004: GeodesicSphere02 1
+    100006: ID110
+    100008: ID118
+    100010: ID128
+    100012: ID136
+    100014: ID144
+    100016: ID152
+    100018: ID160
+    100020: ID168
+    100022: ID176
+    100024: ID184
+    100026: ID192
+    100028: ID202
+    100030: ID208
+    100032: ID216
+    100034: ID224
+    100036: ID231
+    100038: ID47
+    100040: ID62
+    100042: ID80
+    100044: ID95
+    100046: instance_0
+    100048: instance_1
+    100050: instance_2
+    100052: skp_camera_Last_Saved_SketchUp_View
+    100054: The_Silver_Surfer_Head
+    400000: //RootNode
+    400002: GeodesicSphere02
+    400004: GeodesicSphere02 1
+    400006: ID110
+    400008: ID118
+    400010: ID128
+    400012: ID136
+    400014: ID144
+    400016: ID152
+    400018: ID160
+    400020: ID168
+    400022: ID176
+    400024: ID184
+    400026: ID192
+    400028: ID202
+    400030: ID208
+    400032: ID216
+    400034: ID224
+    400036: ID231
+    400038: ID47
+    400040: ID62
+    400042: ID80
+    400044: ID95
+    400046: instance_0
+    400048: instance_1
+    400050: instance_2
+    400052: skp_camera_Last_Saved_SketchUp_View
+    400054: The_Silver_Surfer_Head
+    2300000: //RootNode
+    2300002: GeodesicSphere02
+    2300004: GeodesicSphere02 1
+    2300006: ID110
+    2300008: ID118
+    2300010: ID128
+    2300012: ID136
+    2300014: ID144
+    2300016: ID152
+    2300018: ID160
+    2300020: ID168
+    2300022: ID176
+    2300024: ID184
+    2300026: ID192
+    2300028: ID202
+    2300030: ID208
+    2300032: ID216
+    2300034: ID224
+    2300036: ID47
+    2300038: ID62
+    2300040: ID80
+    2300042: ID95
+    2300044: The_Silver_Surfer_Head
+    3300000: //RootNode
+    3300002: GeodesicSphere02
+    3300004: GeodesicSphere02 1
+    3300006: ID110
+    3300008: ID118
+    3300010: ID128
+    3300012: ID136
+    3300014: ID144
+    3300016: ID152
+    3300018: ID160
+    3300020: ID168
+    3300022: ID176
+    3300024: ID184
+    3300026: ID192
+    3300028: ID202
+    3300030: ID208
+    3300032: ID216
+    3300034: ID224
+    3300036: ID47
+    3300038: ID62
+    3300040: ID80
+    3300042: ID95
+    3300044: The_Silver_Surfer_Head
+    4300000: SketchUp
+    4300002: ID80
+    4300004: ID95
+    4300006: ID110
+    4300008: ID118
+    4300010: ID128
+    4300012: ID136
+    4300014: ID144
+    4300016: ID152
+    4300018: ID160
+    4300020: ID168
+    4300022: ID176
+    4300024: ID184
+    4300026: ID192
+    4300028: ID202
+    4300030: ID208
+    4300032: ID216
+    4300034: ID224
+    4300036: The_Silver_Surfer_Head
+    4300038: ID47
+    4300040: ID62
+    4300042: GeodesicSphere02
+    4300044: GeodesicSphere02
+    6400000: //RootNode
+    6400002: GeodesicSphere02
+    6400004: GeodesicSphere02 1
+    6400006: ID110
+    6400008: ID118
+    6400010: ID128
+    6400012: ID136
+    6400014: ID144
+    6400016: ID152
+    6400018: ID160
+    6400020: ID168
+    6400022: ID176
+    6400024: ID184
+    6400026: ID192
+    6400028: ID202
+    6400030: ID208
+    6400032: ID216
+    6400034: ID224
+    6400036: ID47
+    6400038: ID62
+    6400040: ID80
+    6400042: ID95
+    6400044: The_Silver_Surfer_Head
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
