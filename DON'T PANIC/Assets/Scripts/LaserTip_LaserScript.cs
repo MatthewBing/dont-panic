@@ -42,7 +42,7 @@ public class LaserTip_LaserScript : MonoBehaviour
         FlareLight = gameObject.GetComponent<Light>();
         FlareLight.enabled = false;
 
-        LaserWidth = 0.05f;
+        LaserWidth = 0.02f;
         LaserLength = 100000;   //random but greater than 500 as diagonal line render would be approx 500 
         MaxReflections = 300;   //3 per reflection
 
@@ -62,6 +62,7 @@ public class LaserTip_LaserScript : MonoBehaviour
     void Update()
 	{
 		if(isOn)
+		//if(Input.GetButton("Fire1"))
             StartCoroutine(FireLaser());
         else
             StopCoroutine(FireLaser());
@@ -113,6 +114,7 @@ public class LaserTip_LaserScript : MonoBehaviour
         SetLineRendererProperties(LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]], ReflectorMaterial);
 
         while (isOn)//fix- Replace the controller button name
+		//while(Input.GetButton("Fire1"))
         {
             //Every Loop is 1 Beam, if splitter encountered a new beam is initialized which is serviced by this same for loop later.
             //CurrentLR is updated whenever a color lens is encountered and hence, reused
