@@ -22,7 +22,7 @@ public class KnightLightsOff : MonoBehaviour {
 
 	void KnightFlaresOff()
 	{
-		print ("In Knights Script Off");
+		
 		FlareLight.enabled = 	false;
 	}
 

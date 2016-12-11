@@ -172,33 +172,31 @@ public class RigidbodyPickUp : MonoBehaviour
     {
         if (rotationSystem.enabled)
         {
-            if (Input.GetButton(rotationSystem.rotateButton) && isObjectHeld)
-            {
+			if (Input.GetButton (rotationSystem.rotateButton) && isObjectHeld) {
 				if (flipped == false) {
-					objectHeld.transform.Rotate(objectHeld.transform.up, 90f);
-					StartCoroutine (Wait (1.0f));
+					objectHeld.transform.Rotate (objectHeld.transform.up, 5f);
+					StartCoroutine (Wait (0.2f));
 				} 
-                //physicsMenu.objectRotated = true;
-                //objectHeld.GetComponent<Rigidbody>().freezeRotation = true;
-                //objectHeld.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                //for (int x = 0; x < rotationSystem.mouseScripts.Length; x++)
-                //{
-                 //   rotationSystem.mouseScripts[x].enabled = !rotationSystem.mouseScripts[x].enabled;
-                //}
-                //switch (rotationSystem.lockRotationTo)
-                //{
-                  //  case rotationSystemSub.lockingRotation.X:
-                    //    objectHeld.transform.Rotate(playerCam.transform.up, -Mathf.Deg2Rad * (rotationSystem.xRotationSpeed * Input.GetAxis("Mouse X")));
-                      //  break;
-                    //case rotationSystemSub.lockingRotation.Y:
-                     //   objectHeld.transform.Rotate(playerCam.transform.right, Mathf.Deg2Rad * (rotationSystem.yRotationSpeed * Input.GetAxis("Mouse Y")));
-                      //  break;
-                    //case rotationSystemSub.lockingRotation.None:
-                     //   objectHeld.transform.Rotate(playerCam.transform.up, -Mathf.Deg2Rad * (rotationSystem.xRotationSpeed * Input.GetAxis("Mouse X")));
-                      //  objectHeld.transform.Rotate(playerCam.transform.right, Mathf.Deg2Rad * (rotationSystem.yRotationSpeed * Input.GetAxis("Mouse Y")));
-                       // break;
+				physicsMenu.objectRotated = true;
+				objectHeld.GetComponent<Rigidbody> ().freezeRotation = true;
+				objectHeld.GetComponent<Rigidbody> ().velocity = Vector3.zero;
+				for (int x = 0; x < rotationSystem.mouseScripts.Length; x++) {
+					rotationSystem.mouseScripts [x].enabled = !rotationSystem.mouseScripts [x].enabled;
+				}
+				switch (rotationSystem.lockRotationTo) {
+				case rotationSystemSub.lockingRotation.X:
+					objectHeld.transform.Rotate (playerCam.transform.up, -Mathf.Deg2Rad * (rotationSystem.xRotationSpeed * Input.GetAxis ("Mouse X")));
+					break;
+				case rotationSystemSub.lockingRotation.Y:
+					objectHeld.transform.Rotate (playerCam.transform.right, Mathf.Deg2Rad * (rotationSystem.yRotationSpeed * Input.GetAxis ("Mouse Y")));
+					break;
+				case rotationSystemSub.lockingRotation.None:
+					objectHeld.transform.Rotate (playerCam.transform.up, -Mathf.Deg2Rad * (rotationSystem.xRotationSpeed * Input.GetAxis ("Mouse X")));
+					objectHeld.transform.Rotate (playerCam.transform.right, Mathf.Deg2Rad * (rotationSystem.yRotationSpeed * Input.GetAxis ("Mouse Y")));
+					break;
                 
-            }
+				}
+			}
             else if (!Input.GetButton(rotationSystem.rotateButton) && isObjectHeld)
             {
                 objectHeld.GetComponent<Rigidbody>().freezeRotation = false;

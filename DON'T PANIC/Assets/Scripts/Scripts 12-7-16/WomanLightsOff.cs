@@ -21,7 +21,7 @@ public class WomanLightsOff : MonoBehaviour {
 
 	void WomanFlaresOff()
 	{
-		print ("In Womans Script Off");
+		
 		FlareLight.enabled = 	false;
 	}
 

@@ -7,6 +7,7 @@ public class buttonHandler : MonoBehaviour {
     public GameObject laserToStart;
     public bool isPushed;
     private LaserTip_LaserScript laserscript;
+    public int laserTime;
 
     // Use this for initialization
     void Start () {
@@ -17,7 +18,7 @@ public class buttonHandler : MonoBehaviour {
     IEnumerator laserTimer(float time)
     {
         laserscript.isOn = true;
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(laserTime);
         laserscript.isOn = false;
     }
 
@@ -29,7 +30,7 @@ public class buttonHandler : MonoBehaviour {
             if (laserscript.isOn == false)
             {
                 StartCoroutine(laserTimer(3f));
-                Debug.Log("Button Pushed! Firing Laser!");
+                
                 isPushed = false;
             }
             else

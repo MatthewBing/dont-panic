@@ -8,25 +8,27 @@ public class LaserTip_LaserScript : MonoBehaviour
     public delegate void LaserCollidesStatueLightsOn();
     public static event LaserCollidesStatueLightsOn OnLaserCollidesStatueLightsOn;
 
+
     public delegate void LaserCollidesStatueLightsOff();
     public static event LaserCollidesStatueLightsOff OnLaserCollidesStatueLightsOff;
+    public bool isOn;
 
-    public float updateFrequency;
-	public float 	LaserWidth;
-	public int 		LaserLength;		
-	public int 		MaxReflections;
+    public float LaserWidth;
+    public int LaserLength;
+    public int MaxReflections;
 
     public Material RedMat;
     public Material GreenMat;
     public Material BlueMat;
     public Material ReflectorMaterial;
+    public Material AdditionalMaterial1;
+    public Material AdditionalMaterial2;
 
-    //Matt's addition for Laser Button
-    public bool     isOn;
 
     private Dictionary<string, Material> LensColliderMaterialMap = new Dictionary<string, Material>();
     private List<string> StatueColliderNames = new List<string>();
-    private 		Light			FlareLight;     //Flare Light
+    private Light FlareLight;       //Flare Light
+
 
     void SetLineRendererProperties(LineRenderer LR, Material LRMaterial)
     {
@@ -42,7 +44,7 @@ public class LaserTip_LaserScript : MonoBehaviour
         FlareLight = gameObject.GetComponent<Light>();
         FlareLight.enabled = false;
 
-        LaserWidth = 0.02f;
+        LaserWidth = 0.05f;
         LaserLength = 100000;   //random but greater than 500 as diagonal line render would be approx 500 
         MaxReflections = 300;   //3 per reflection
 
@@ -60,19 +62,19 @@ public class LaserTip_LaserScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-	{
-		if(isOn)
-		//if(Input.GetButton("Fire1"))
-            StartCoroutine(FireLaser());
-        else
+    {
+        if (isOn)//fix- Replace the controller button name
+        {
             StopCoroutine(FireLaser());
+            StartCoroutine(FireLaser());
+        }
     }
 
     IEnumerator FireLaser()
     {
 
         int ReflectionCount = 1;        //Laser Reflection count, just a precaution to avoid looping forever
-        int SplitterzOffset = 1;
+        float SplitterzOffset = 1.0f;
 
         List<int> NumOfDiffMaterials = new List<int>();
         List<List<LineRenderer>> LaserLR = new List<List<LineRenderer>>();
@@ -108,13 +110,11 @@ public class LaserTip_LaserScript : MonoBehaviour
         //Setup the First LR
         LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]].enabled = true;
         FlareLight.enabled = true;
-
         LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]].SetVertexCount(NumOfVertexes[LRNumber]);
         LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]].SetPosition(0, transform.position);
-        SetLineRendererProperties(LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]], ReflectorMaterial);
+        SetLineRendererProperties(LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]], ReflectorMaterial);//fix
 
         while (isOn)//fix- Replace the controller button name
-		//while(Input.GetButton("Fire1"))
         {
             //Every Loop is 1 Beam, if splitter encountered a new beam is initialized which is serviced by this same for loop later.
             //CurrentLR is updated whenever a color lens is encountered and hence, reused
@@ -123,6 +123,7 @@ public class LaserTip_LaserScript : MonoBehaviour
                 RaycastHit LaserRayHit;
                 string ColliderTag;
                 LineRenderer CurrentLR = LaserLR[LRCounter][NumOfDiffMaterials[LRCounter]]; //	
+                LineRenderer TempLR;
 
                 while (LoopBool[LRCounter])
                 {
@@ -140,7 +141,7 @@ public class LaserTip_LaserScript : MonoBehaviour
                         PrevDirection.Add(LaserDirection[LRCounter]);
                         LaserDirection[LRCounter] = Vector3.Reflect(LaserDirection[LRCounter], LaserRayHit.normal);
 
-                        if ((ColliderTag != "MirrorCollider") && (ColliderTag != "SoldierCollider") && (ColliderTag != "KnightCollider") && (ColliderTag != "SplitCollider") && !LensColliderMaterialMap.ContainsKey(ColliderTag))
+                        if ((ColliderTag != "MirrorCollider") && (ColliderTag != "SoldierCollider") && (ColliderTag != "SplitCollider") && !LensColliderMaterialMap.ContainsKey(ColliderTag))
                         {
                             LoopBool[LRCounter] = false;
                             //print (LRCounter + " " + ColliderTag);
@@ -148,7 +149,7 @@ public class LaserTip_LaserScript : MonoBehaviour
                         else if (ColliderTag == "SplitCollider")
                         {
 
-
+                            //Beam 1
                             LRNumber++;
 
                             NumOfDiffMaterials.Add(0);
@@ -167,17 +168,68 @@ public class LaserTip_LaserScript : MonoBehaviour
                             LoopBool.Add(true);
 
                             LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]].enabled = true;
-                            SetLineRendererProperties(LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]], RedMat);
+                            SetLineRendererProperties(LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]], CurrentLR.material);
+
+
+                            TempLR = CurrentLR;
+                            CurrentLR = LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]];
+
+                            LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]].SetVertexCount(NumOfVertexes[LRNumber]);
+
+                            if (Physics.Raycast(PrevLaserPosition[LRNumber], LaserDirection[LRNumber], out LaserRayHit, LaserLength))
+                            {
+                                PrevLaserPosition[LRNumber] = LaserRayHit.point;
+                            }
 
                             Vector3 SwapVec;
                             SwapVec.y = PrevLaserPosition[LRNumber].y;
                             SwapVec.x = PrevLaserPosition[LRNumber].x;
-                            SwapVec.z = PrevLaserPosition[LRNumber].z + SplitterzOffset;
+                            /*if(LaserDirection [LRNumber].z > 0)
+								SwapVec.z = PrevLaserPosition [LRNumber].z - 0.2f;	
+							else
+								SwapVec.z = PrevLaserPosition [LRNumber].z + 0.2f;	*/
+                            SwapVec.z = PrevLaserPosition[LRNumber].z + 0.2f;
                             PrevLaserPosition[LRNumber] = SwapVec;
+                            LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]].SetPosition(0, PrevLaserPosition[LRNumber]);
+                            CurrentLR = TempLR;
+
+                            //Beam2 
+                            LRNumber++;
+                            NumOfDiffMaterials.Add(0);
+
+                            GameObj.Add(new List<GameObject>());
+                            GameObj[LRNumber].Add(new GameObject());
+
+                            LaserLR.Add(new List<LineRenderer>());
+                            LaserLR[LRNumber].Add(GameObj[LRNumber][NumOfDiffMaterials[LRNumber]].AddComponent<LineRenderer>());
+
+
+                            NumOfVertexes.Add(1);
+                            LaserDirection.Add(PrevDirection[LRCounter]);
+
+                            PrevLaserPosition.Add(LaserRayHit.point);
+                            LoopBool.Add(true);
+
+                            LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]].enabled = true;
+                            SetLineRendererProperties(LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]], CurrentLR.material);
+
+
+                            TempLR = CurrentLR;
+                            CurrentLR = LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]];
 
                             LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]].SetVertexCount(NumOfVertexes[LRNumber]);
-                            LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]].SetPosition(0, PrevLaserPosition[LRNumber]);
 
+                            if (Physics.Raycast(PrevLaserPosition[LRNumber], PrevDirection[LRCounter], out LaserRayHit, LaserLength))
+                            {
+                                PrevLaserPosition[LRNumber] = LaserRayHit.point;
+                            }
+
+                            SwapVec.y = PrevLaserPosition[LRNumber].y;
+                            SwapVec.x = PrevLaserPosition[LRNumber].x - 0.4f;
+                            SwapVec.z = PrevLaserPosition[LRNumber].z;
+                            PrevLaserPosition[LRNumber] = SwapVec;
+                            LaserLR[LRNumber][NumOfDiffMaterials[LRNumber]].SetPosition(0, PrevLaserPosition[LRNumber]);
+                            CurrentLR = TempLR;
 
 
 
@@ -237,7 +289,7 @@ public class LaserTip_LaserScript : MonoBehaviour
                 LaserLR[LRCounter][NumOfDiffMat].enabled = false;
 
         FlareLight.enabled = false;
-        //OnLaserCollidesStatueLightsOff();
+        OnLaserCollidesStatueLightsOff();
 
     }
 }
