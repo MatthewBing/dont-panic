@@ -11,7 +11,7 @@ public class TimerScript : MonoBehaviour
     public Text 	TimerT;
     string MinT;
     string SecT;
-    bool isHidden;
+
 
     // Use this for initialization
     void Start () 
@@ -46,11 +46,6 @@ public class TimerScript : MonoBehaviour
             SecT = (timeRem % 60).ToString();
 
 
-        if (isHidden)
-            TimerT.text = "";
-
-        else
-        {
             if (timeRem <= 0) 
 			{
 				//fix-game over 
@@ -65,7 +60,7 @@ public class TimerScript : MonoBehaviour
                 TimerT.text = MinT + ":" + SecT;
 			}
                 //+ ":" + SecT);
-		}
+		
         yield return new WaitForSecondsRealtime(.5f);
         StartCoroutine(CountDownTimer(timeRem));
     }

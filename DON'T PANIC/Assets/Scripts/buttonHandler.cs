@@ -6,20 +6,20 @@ public class buttonHandler : MonoBehaviour {
     public GameObject thisButton;
     public GameObject laserToStart;
     public bool isPushed;
-    private LaserTip_LaserScript laserscript;
+    private CannonBehavior laserscript;
     public int laserTime;
 
     // Use this for initialization
     void Start () {
         isPushed = false;
-        laserscript = laserToStart.GetComponent<LaserTip_LaserScript>();
+        laserscript = laserToStart.GetComponent<CannonBehavior>();
     }
 
-    IEnumerator laserTimer(float time)
+    IEnumerator fireLaser(float time)
     {
-        laserscript.isOn = true;
+        laserscript.isPushed = true;
         yield return new WaitForSeconds(laserTime);
-        laserscript.isOn = false;
+        laserscript.isPushed = false;
     }
 
 	// Update is called once per frame
@@ -27,15 +27,14 @@ public class buttonHandler : MonoBehaviour {
     {
         if (isPushed == true)
         {
-            if (laserscript.isOn == false)
+            if (laserscript.isPushed == false)
             {
-                StartCoroutine(laserTimer(3f));
-                
+                StartCoroutine(fireLaser(3f));
                 isPushed = false;
             }
             else
             {
-                Debug.Log("It's already on!");
+                Debug.Log("Wait a sec, jeez!");
                 isPushed = false;
             }
         }
