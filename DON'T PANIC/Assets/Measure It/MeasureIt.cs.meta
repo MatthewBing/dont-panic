@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: b314d8f2e93846c469d265e13cafc58c
+labels:
+- Debugging
+- Debug
+- Profiler
+- Statistics
+- Tools
+- Scripts
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
