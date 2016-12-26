@@ -23,6 +23,6 @@ public class slowIntensityIncrease : MonoBehaviour {
 	
 	void Update () {
         if (light && Time.time < 15)
-            light.intensity = Time.time/7;
+            light.intensity = Time.time/25;
     }
 }

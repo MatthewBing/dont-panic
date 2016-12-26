@@ -120,6 +120,7 @@
     <Compile Include="Assets\Scripts\RayCaster.cs" />
     <Compile Include="Assets\Scripts\TimerScript.cs" />
     <Compile Include="Assets\Scripts\buttonHandler.cs" />
+    <Compile Include="Assets\Scripts\whenHit.cs" />
     <Compile Include="Assets\SevenSegmentDisplay\Drivers\NewBehaviourScript.cs" />
     <Compile Include="Assets\TV\MyClock.cs" />
     <Compile Include="Assets\UltimateMenus\Scripts\ButtonController.cs" />

@@ -44,6 +44,7 @@ public class LaserTip_LaserScript : MonoBehaviour
         //print(LRMaterial);
         LR.SetWidth(LaserWidth, LaserWidth);
         LR.material = LRMaterial;
+         
     }
 
     // Use this for initialization
@@ -198,7 +199,7 @@ public class LaserTip_LaserScript : MonoBehaviour
 						{
 							//print ("In No collision");
                             LoopBool[LRCounter] = false;
-							print (LRCounter + " " + LaserRayHit.point);
+							
                         }
 						else if (ColliderTag == "SplitCollider")
                         {
@@ -277,19 +278,36 @@ public class LaserTip_LaserScript : MonoBehaviour
                         }
 						else if (StatueColliderNamesMap.ContainsKey(ColliderTag))
 						{
-							print ( (LaserRayHit.collider.GetComponentInParent<whenHit>()).matneeded.ToString());
-							print ("LR: " + GreenMat.ToString());
+							
 							statueWithScript = GameObject.FindGameObjectWithTag(ColliderTag);
 
-							//if (CurrentLR.material.Equals(statueWithScript.GetComponent<Material>())) {	
-							if(StatueColliderNamesMap[ColliderTag].ToString() == (LaserRayHit.collider.GetComponentInParent<whenHit>()).matneeded.ToString()){
+							if (    (CurrentLR.material.ToString()).IndexOf("Red") != -1 && (LaserRayHit.collider.GetComponentInParent<whenHit>()).matneeded.ToString().IndexOf("Red") != -1)
+                            {
+                                scriptOnStatue = statueWithScript.GetComponent<whenHit>();
+                                scriptOnStatue.hitByCorrectLaser();
+                            }
+                            if (    (CurrentLR.material.ToString()).IndexOf("Green") != -1 && (LaserRayHit.collider.GetComponentInParent<whenHit>()).matneeded.ToString().IndexOf("Green") != -1)
+                            {
+                                scriptOnStatue = statueWithScript.GetComponent<whenHit>();
+                                scriptOnStatue.hitByCorrectLaser();
+                            }
+                            if (    (CurrentLR.material.ToString()).IndexOf("Blue") != -1 && (LaserRayHit.collider.GetComponentInParent<whenHit>()).matneeded.ToString().IndexOf("Blue") != -1  )
+                            {
+                                scriptOnStatue = statueWithScript.GetComponent<whenHit>();
+                                scriptOnStatue.hitByCorrectLaser();
+                            }
+                           /* if (StatueColliderNamesMap[ColliderTag].ToString() == (LaserRayHit.collider.GetComponentInParent<whenHit>()).matneeded.ToString()){
 								//StatueColliderNamesMap [ColliderTag])
-								print ("OH WELL");
+								print ("Statue Hit!");
+                                print (StatueColliderNamesMap[ColliderTag].ToString());
+                                print ((LaserRayHit.collider.GetComponentInParent<whenHit>()).matneeded.ToString());
+                                print   (CurrentLR.material);
 
-								scriptOnStatue = statueWithScript.GetComponent<whenHit> ();
+                                scriptOnStatue = statueWithScript.GetComponent<whenHit> ();
 								scriptOnStatue.hitByCorrectLaser();
 
-							}//MIGHT be a problem, ALL STATUES MIGHT light up at the same time, can be easily fixed in the morning. 5mins
+							}*/
+                            //MIGHT be a problem, ALL STATUES MIGHT light up at the same time, can be easily fixed in the morning. 5mins
                             /*LoopBool[LRCounter] = false;
                             if (OnLaserCollidesStatueLightsOn != null)
                             {
